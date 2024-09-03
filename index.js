@@ -5,7 +5,7 @@ import fs from 'fs';
 
 async function fetchData(url) {
     try {
-        const response = await fetch(url);
+        const response = await fetch(`https://www.companydetails.in${url}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
