@@ -65,12 +65,14 @@ async function fetchData(url) {
 
 
 async function fetchAllData(urls) {
+    let count=0
    for (const url of urls) {
+      count++
        const data = await fetchData(url);
        if (data) {
            // Write the data to the .json file immediately
            fs.appendFileSync('company_data.json', JSON.stringify(data, null, 2) + ',\n');
-           console.log(`Data for ${url} written to company_data.json`);
+           console.log(`Data for ${url} written to company_data.json`,count);
        }
    }
 
